@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feliz Cumpleaños</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: url("https://cdn.shopify.com/s/files/1/0257/6718/2416/files/Party-Background-green-with-presents.jpg") no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Heebo', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    .mensaje {
+      color: white;
+      font-size: 48px;
+      font-weight: bold;
+      text-shadow: 3px 3px 8px #000;
+      margin-bottom: 50px;
+      animation: aparecer 2s ease-in-out;
+      text-align: center;
+    }
+
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .balloon_container {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .balloon {
+      width: 70px;
+      height: 88px;
+      border-radius: 50% 50% 45% 45%;
+      background-color: #ff6f61;
+      color: white;
+      font-weight: bold;
+      font-size: 32px;
+      line-height: 88px;
+      text-align: center;
+      animation: floatUp 2s ease-out forwards;
+      box-shadow: inset -5px -10px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    @keyframes floatUp { 
+      0% { transform: translateY(300px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Delay para cada globo */
+    .balloon:nth-child(1) { animation-delay: 0s; }
+    .balloon:nth-child(2) { animation-delay: 0.2s; }
+    .balloon:nth-child(3) { animation-delay: 0.4s; }
+    .balloon:nth-child(4) { animation-delay: 0.6s; }
+    .balloon:nth-child(5) { animation-delay: 0.8s; }
+    .balloon:nth-child(6) { animation-delay: 1s; }
+    .balloon:nth-child(7) { animation-delay: 1.2s; }
+
+    .confetti-button{
+        background-color: #ff6f61;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: background-color 0.3s ease;
+    }
+    .confetti-button:hover{
+        background-color: #ff3b2a;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 class="mensaje">¡Feliz Cumpleaños! 🎉</h1>
+
+  <div class="balloon_container">
+    <div class="balloon">F</div>
+    <div class="balloon">E</div>
+    <div class="balloon">L</div>
+    <div class="balloon">I</div>
+    <div class="balloon">Z</div>
+  </div>
+
+  <div class="balloon_container">
+    <div class="balloon">C</div>
+    <div class="balloon">U</div>
+    <div class="balloon">M</div>
+    <div class="balloon">P</div>
+    <div class="balloon">L</div>
+    <div class="balloon">E</div>
+  </div>
+
+  <div class="balloon_container">
+    <div class="balloon">A</div>
+    <div class="balloon">Ñ</div>
+    <div class="balloon">O</div>
+    <div class="balloon">S</div>
+  </div>
+  <!--Boton para activar el confeti-->
+  <button class="confetti-button" id="confettiButton"> !Presionar para celebrar¡</button>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <script>
+    // Activar confeti al hacer clic en el botón
+    document.getElementById('confettiButton').onclick = function() {
+      const duration = 5 * 1000;
+      const end = Date.now() + duration;
+
+      (function frame() {
+        confetti({
+          particleCount: 7,
+          angle: 60,
+          spread: 60,
+          origin: { x: 0 },
+          colors: ['#ff0a54', '#ff477e', '#ff7096', '#ff85a1', '#fbb1bd']
+        });
+        confetti({
+          particleCount: 7,
+          angle: 120,
+          spread: 60,
+          origin: { x: 1 },
+          colors: ['#00bbf9', '#00f5d4', '#9b5de5', '#f15bb5', '#fee440']
+        });
+
+        if (Date.now() < end) {
+          requestAnimationFrame(frame);
+        }
+      })();
+    };
+  </script>
+</body>
+
+</html>
