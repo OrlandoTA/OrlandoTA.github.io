@@ -1,4 +1,5 @@
 body {
+    position: relative;
     margin: 0;
     background: url("https://cdn.shopify.com/s/files/1/0257/6718/2416/files/Party-Background-green-with-presents.jpg") no-repeat center center fixed;
     background-size: cover;
@@ -8,9 +9,11 @@ body {
     justify-content: center;
     height: 100vh;
     flex-direction: column;
-  }
+    overflow: hidden;
 
-  .mensaje {
+}
+
+.mensaje {
     color: white;
     font-size: 48px;
     font-weight: bold;
@@ -18,21 +21,22 @@ body {
     margin-bottom: 50px;
     animation: aparecer 2s ease-in-out;
     text-align: center;
-  }
+}
 
-  @keyframes aparecer {
+@keyframes aparecer {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
-  }
+}
 
-  .balloon_arc {
+/*Area de los globos*/
+.balloon_arc {
     position: relative;
     width: 600px;
     height: 300px;
     margin-top: 50px;
-  }
+}
 
-  .balloon_arc .balloon{
+.balloon_arc .balloon{
     position: absolute;
     width: 60px;
     height: 88px;
@@ -46,10 +50,10 @@ body {
     animation: floatUp 2s ease-out forwards;
     box-shadow: inset -5px -10px 0 rgba(0, 0, 0, 0.1);
     transform-origin: bottom center;
-  }
+}
 
-  /* Animación para las cuerditas */
-  @keyframes balance {
+/* Animación para las cuerditas */
+@keyframes balance {
     0% {
       transform: translateX(-50%) rotate(0deg);
     }
@@ -59,9 +63,9 @@ body {
     100% {
       transform: translateX(-50%) rotate(-5deg);
     }
-  }
+}
 
-  .balloon_arc .balloon::after {
+.balloon_arc .balloon::after {
     content: "";
     position: absolute;
     top: 100%;
@@ -71,31 +75,32 @@ body {
     background-color: #ffffffaa; /* blanco semitransparente */
     transform: translateX(-50%);
     animation: balance 2s ease-in-out infinite; /* Aplicamos la animación */
-  }
+}
 
-  @keyframes floatUp { 
+@keyframes floatUp { 
     0% { transform: translateY(300px); opacity: 0; }
     100% { transform: translateY(0); opacity: 1; }
-  }
+}
 
-  /* Delay para cada globo */
-  .balloon_arc .balloon:nth-child(1) { transform: rotate(-40deg) translateY(-20px);}
-  .balloon_arc .balloon:nth-child(2) { transform: rotate(-30deg) translateY(-25px);}
-  .balloon_arc .balloon:nth-child(3) { transform: rotate(-20deg) translateY(-30px); }
-  .balloon_arc .balloon:nth-child(4) { transform: rotate(-10deg) translateY(-35px); }
-  .balloon_arc .balloon:nth-child(5) { transform: rotate(0deg) translateY(-40px); }
-  .balloon_arc .balloon:nth-child(6) { transform: rotate(10deg) translateY(-35px); }
-  .balloon_arc .balloon:nth-child(7) { transform: rotate(20deg) translateY(-30px); }
-  .balloon_arc .balloon:nth-child(8) { transform: rotate(30deg) translateY(-25px); }
-  .balloon_arc .balloon:nth-child(9) { transform: rotate(40deg) translateY(-20px); }
-  .balloon_arc .balloon:nth-child(10) { transform: rotate(50deg) translateY(-15px); }
-  .balloon_arc .balloon:nth-child(11) { transform: rotate(60deg) translateY(-10px); }
-  .balloon_arc .balloon:nth-child(12) { transform: rotate(70deg) translateY(-5px); }
-  .balloon_arc .balloon:nth-child(13) { transform: rotate(80deg) translateY(0px); }
-  .balloon_arc .balloon:nth-child(14) {transform: rotate(90deg) translateY(5px);}
-  .balloon_arc .balloon:nth-child(15) { transform: rotate(100deg) translateY(10px); }
-  
-  .confetti-button{
+/* Delay para cada globo */
+.balloon_arc .balloon:nth-child(1) { transform: rotate(-40deg) translateY(-20px);}
+.balloon_arc .balloon:nth-child(2) { transform: rotate(-30deg) translateY(-25px);}
+.balloon_arc .balloon:nth-child(3) { transform: rotate(-20deg) translateY(-30px); }
+.balloon_arc .balloon:nth-child(4) { transform: rotate(-10deg) translateY(-35px); }
+.balloon_arc .balloon:nth-child(5) { transform: rotate(0deg) translateY(-40px); }
+.balloon_arc .balloon:nth-child(6) { transform: rotate(10deg) translateY(-35px); }
+.balloon_arc .balloon:nth-child(7) { transform: rotate(20deg) translateY(-30px); }
+.balloon_arc .balloon:nth-child(8) { transform: rotate(30deg) translateY(-25px); }
+.balloon_arc .balloon:nth-child(9) { transform: rotate(40deg) translateY(-20px); }
+.balloon_arc .balloon:nth-child(10) { transform: rotate(50deg) translateY(-15px); }
+.balloon_arc .balloon:nth-child(11) { transform: rotate(60deg) translateY(-10px); }
+.balloon_arc .balloon:nth-child(12) { transform: rotate(70deg) translateY(-5px); }
+.balloon_arc .balloon:nth-child(13) { transform: rotate(80deg) translateY(0px); }
+.balloon_arc .balloon:nth-child(14) {transform: rotate(90deg) translateY(5px);}
+.balloon_arc .balloon:nth-child(15) { transform: rotate(100deg) translateY(10px); }
+
+/*Area del confetti*/
+.confetti-button{
     background-color: #ff6f61;
     color: white;
     font-size: 18px;
@@ -106,43 +111,49 @@ body {
     cursor: pointer;
     margin-top: 20px;
     transition: background-color 0.3s ease;
-  }
-  .confetti-button:hover{
-    background-color: #ff3b2a;
-  }
+}
 
-  .image_container{
+.confetti-button:hover{
+    background-color: #ff3b2a;
+}
+
+/*Area de las imagenes*/
+.image_container{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+ 
+.image_card{
+    position: absolute;
     display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 30px;
-  }
-  .image_card{
-    display:flex;
     flex-direction: column;
     align-items: center;
-    animation-delay: 1.5s;
     animation: floatUp 2s ease-out forwards;
     opacity: 0;
-  }
-  .image_card img{
+}
+  
+.image_card img{
     width: 150px;
     height: 150px;
     object-fit: cover;
     border-radius: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-  }
-  .image_card p{
-    margin-top: 10px;
-    color:white;
-    font-weight:bold;
-    text-shadow: 1px 1px 4px black;
-    text-align: center;
-  }
+    
+}
+  
+.image_card p{
+   position: absolute;
+   bottom: 10px;
+   left: 50%;
+   transform: translateX(-50%);
+   color: white;
+   font-weight: bold;
+   text-shadow: 1px 1px 4px black;
+   text-align: center;
+}
 
- /*Para pantallas mas pequenias*/
-  @media (max-width: 600px) {
+/*Para pantallas mas pequenias*/
+@media (max-width: 600px) {
     .mensaje {
       font-size: 32px;
     }
@@ -156,4 +167,6 @@ body {
       width: 120px;
       height: 120px;
     }
+}/*Fin @media*/
+
   }/*Fin @media*/
