@@ -117,41 +117,6 @@ body {
   background-color: #ff3b2a;
 }
 
-/*Area de las imagenes*/
-.image_container{
-  position: flex;
-  width: 100%;
-  height: 100vh;
-}
-
-.image_card{
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  animation: floatUp 2s ease-out forwards;
-  opacity: 0;
-}
-
-.image_card img{
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 20px;
-  
-}
-
-.image_card p{
- position: absolute;
- bottom: 10px;
- left: 50%;
- transform: translateX(-50%);
- color: white;
- font-weight: bold;
- text-shadow: 1px 1px 4px black;
- text-align: center;
-}
-
 /*Para pantallas mas pequenias*/
 @media (max-width: 600px) {
 
@@ -189,16 +154,15 @@ body {
     width: 100px;
     height: 100px;
   }
+
   .image_card p{
-   position: static;
-   bottom: 10px;
-   left: 50%;
-   transform: translateX(-50%);
-   color: white;
-   font-weight: bold;
-   text-shadow: 1px 1px 4px black;
-   text-align: center;
-  }
+    position: static;
+    color: white;
+    font-weight: bold;
+    text-shadow: 1px 1px 4px black;
+    text-align: center;
+    margin-top: 5px;
+   }
 
   .confetti-button {
     font-size: 16px;
@@ -208,4 +172,4 @@ body {
 
 
 }/*Fin @media*/
-
+  
