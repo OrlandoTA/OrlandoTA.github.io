@@ -47,3 +47,15 @@ document.getElementById('confettiButton').onclick = function() {
   //Llamar a la funcion al cargar la pagina
   window.onload = positionImages;
   */
+const music = document.getElementById('backgroundMusic');
+const musicButton = document.getElementById('toggleMusic');
+
+musicButton.addEventListener('click', ()=> {
+  if(music.paused){
+    music.play();
+    musicButton.textContent = '🔊 Pausar Música';
+  } else{
+    music.pause();
+    musicButton.textContent = '🔊 Reproducir Música';
+  }
+});
