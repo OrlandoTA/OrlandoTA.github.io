@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Feliz Cumpleaños</title>
+  <title>Un regalo</title>
   <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
 
-  <h1 class="mensaje">¡Feliz Cumpleaños! 🎉</h1>
+  <button id="openGiftButton">Abrir regalo</button>
+  <h1 class="mensaje" style="display: none;">¡Feliz Cumpleaños! 🎉</h1>
 
   <div class="balloon_arc">
     <div class="balloon" style="left: 0%; top: 60%;">F</div>
@@ -28,36 +29,14 @@
     <div class="balloon" style="left: 91%; top: 50%;">O</div>
     <div class="balloon" style="left: 98%; top: 60%;">S</div>
   </div>
-<!--
-  <div class="image_container">
-    <div class="image_card">
-      <img src="https://cdn.shopify.com/static/sample-images/shoes.jpeg" alt="Foto 1">
-      <p>Infancia</p>
-    </div>
-    <div class="image_card">
-      <img src="https://cdn.shopify.com/static/sample-images/garnished.jpeg" alt="Foto 2">
-      <p>Buenos momentos</p>
-    </div>
-    <div class="image_card">
-      <img src="https://cdn.pixabay.com/photo/2015/02/09/20/03/koala-630117__340.jpg" alt="Foto 3">
-      <p>Amigos</p>
-    </div>
-  </div>
--->
-  <button class="confetti-button" id="confettiButton">¡Presionar para celebrar!</button>
+
+  <button id="mostrarImagenButton" onclick="mostrarImagen()" style="display: none;"> Mostrar imagen</button>
+  <img id= "miImagen" src="https://cdn.shopify.com/static/sample-images/shoes.jpeg" alt="Una loca despeinada" style="display: none; width: 300px;">
 
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
   <script src="index.js"></script>
-<!--
-  <audio id="backgroundMusic" autoplay loop>
-    <source src="happy-birthday-music-300687.mp3" type="audio/mpeg">
-    Tu navegador no soporta el elemento de audio.
-  </audio>
-  <button id="toggleMusic">🔊Pausar Música</button>
--->
-
-
+  
+  
 </body>
 
 </html>
-
