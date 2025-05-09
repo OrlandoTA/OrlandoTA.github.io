@@ -1,22 +1,43 @@
-// Activar confeti al hacer clic en el botón
-document.getElementById('confettiButton').onclick = function() {
-    const duration = 1000;
+window.onload = function () {
+  const openGiftButton = document.getElementById("openGiftButton");
+  const balloons = document.querySelectorAll(".balloon");  // Corregido el selector de .balloon
+  const mensaje = document.querySelector(".mensaje");
+  const mostrarImagenButton = document.querySelector("#mostrarImagenButton");
+  
+  
+
+  // Ocultar globos y mensaje al inicio
+  balloons.forEach(b => b.style.display = "none");
+  mensaje.style.display = "none";
+
+  openGiftButton.onclick = function () {
+    // Ocultar el botón de abrir regalo
+    openGiftButton.style.display = "none";
+
+    // Mostrar globos y el mensaje
+    balloons.forEach(b => b.style.display = "block");
+    mensaje.style.display = "block";
+
+    //Mostrar boton de imagen
+    mostrarImagenButton.style.display = "inline";
+    
+
+    // Activar confetti de la librería (si la tenés incluida)
+    const duration = 1500;
     const end = Date.now() + duration;
 
     (function frame() {
-      confetti({
-        particleCount: 7,
+      window.confetti({
+        particleCount: 10,
         angle: 60,
         spread: 60,
         origin: { x: 0 },
-        colors: ['#ff0a54', '#ff477e', '#ff7096', '#ff85a1', '#fbb1bd']
       });
-      confetti({
-        particleCount: 7,
+      window.confetti({
+        particleCount: 10,
         angle: 120,
         spread: 60,
         origin: { x: 1 },
-        colors: ['#00bbf9', '#00f5d4', '#9b5de5', '#f15bb5', '#fee440']
       });
 
       if (Date.now() < end) {
@@ -25,37 +46,13 @@ document.getElementById('confettiButton').onclick = function() {
     })();
   };
 
- /*
-  //Funcion para colocar imagenes en posiciones aleatorias
-  function positionImages(){
-    const images = document.querySelectorAll('.image_card');
+  
 
-    images.forEach(image => {
-      //Genera posiciones aleatoris dentro de la ventana
-      const randomY = Math.random() * window.innerHeight;
-      const randomX = Math.random() * window.innerWidth;
-      
-      //Asignar las posiciones a cada imagen 
-      image.style.left = `${randomX}px`;
-      image.style.top = `${randomY}px`;
+};
+function mostrarImagen() {
+  const imagen = document.getElementById("miImagen");
+  imagen.style.display = "block";
 
-      //Efecto de rotacion 
-      const randomRotation =  Math.random() * 360;
-      image.style.transform = `rotate(${randomRotation}deg)`;
-    });
-  }
-  //Llamar a la funcion al cargar la pagina
-  window.onload = positionImages;
-  */
-const music = document.getElementById('backgroundMusic');
-const musicButton = document.getElementById('toggleMusic');
-
-musicButton.addEventListener('click', ()=> {
-  if(music.paused){
-    music.play();
-    musicButton.textContent = '🔊 Pausar Música';
-  } else{
-    music.pause();
-    musicButton.textContent = '🔊 Reproducir Música';
-  }
-});
+  const mostrarImagenButton = document.getElementById("mostrarImagenButton");
+  mostrarImagenButton.style.display = "none";
+}
